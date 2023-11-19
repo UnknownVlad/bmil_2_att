@@ -23,6 +23,7 @@ public class UserService  {
         userRepository.save(
                 new User(
                         user.getUsername(),
+                        user.getPassword(),
                         user.getRetentionTime(),
                         user.getDelayTime()
                 )

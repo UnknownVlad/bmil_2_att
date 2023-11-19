@@ -8,12 +8,11 @@ import com.example.bmil_2_att.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -27,21 +26,45 @@ public class MainController {
 
 
 
-    @RequestMapping(value = "/all", method = RequestMethod.GET)
+    @GetMapping(value = "/all")
     public ResponseEntity<List<User>> getAll(){
-        System.out.println(userService.findAll());
         return ResponseEntity.ok(
                 userService.findAll()
         );
     }
 
-    @RequestMapping(value = "/reg",method = RequestMethod.POST)
-    public void registrationUser(@RequestBody UserDTO userDTO){
-        System.out.println(userDTO);
+    @PostMapping(value = "/reg")
+    public Map<String, String> registrationUser(@RequestBody UserDTO userDTO){
         userService.save(userDTO);
+        return Map.of(
+            "status", "suxes"
+        );
+
     }
 
+    @GetMapping(value = "/f_9")
+    public ResponseEntity<List<User>> get9(){
+        System.out.println(f_9(userService.findAll()));
+        return ResponseEntity.ok(
+                f_9(userService.findAll())
+        );
+    }
 
+    @GetMapping(value = "/f_11")
+    public ResponseEntity<List<User>> get11(){
+        System.out.println(f_11(userService.findAll()));
+        return ResponseEntity.ok(
+                f_11(userService.findAll())
+        );
+    }
+
+    @GetMapping(value = "/f_7")
+    public ResponseEntity<List<User>> get7(){
+        System.out.println(f_7(userService.findAll()));
+        return ResponseEntity.ok(
+                f_7(userService.findAll())
+        );
+    }
     /**
      * Вариант влада 9 - Вывести перечень всех
      * зарегистрированных пользователей, парольная фраза которых
