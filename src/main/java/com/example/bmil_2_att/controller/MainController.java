@@ -24,8 +24,6 @@ public class MainController {
     private UserService userService;
 
 
-
-
     @GetMapping(value = "/all")
     public ResponseEntity<List<User>> getAll(){
         return ResponseEntity.ok(
@@ -33,16 +31,16 @@ public class MainController {
         );
     }
 
-    @PostMapping(value = "/reg")
-    public Map<String, String> registrationUser(@RequestBody UserDTO userDTO){
+    @PostMapping( "/reg")
+    public ResponseEntity<String> registrationUser(@RequestBody  UserDTO userDTO){
         userService.save(userDTO);
-        return Map.of(
-            "status", "suxes"
+        return ResponseEntity.ok(
+                "app"
         );
 
     }
 
-    @GetMapping(value = "/f_9")
+    @GetMapping("/filter9")
     public ResponseEntity<List<User>> get9(){
         System.out.println(f_9(userService.findAll()));
         return ResponseEntity.ok(
@@ -50,7 +48,7 @@ public class MainController {
         );
     }
 
-    @GetMapping(value = "/f_11")
+    @GetMapping( "/filter11")
     public ResponseEntity<List<User>> get11(){
         System.out.println(f_11(userService.findAll()));
         return ResponseEntity.ok(
@@ -58,7 +56,7 @@ public class MainController {
         );
     }
 
-    @GetMapping(value = "/f_7")
+    @GetMapping( "/filter7")
     public ResponseEntity<List<User>> get7(){
         System.out.println(f_7(userService.findAll()));
         return ResponseEntity.ok(
