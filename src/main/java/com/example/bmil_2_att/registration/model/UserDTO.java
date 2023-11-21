@@ -12,6 +12,6 @@ import lombok.ToString;
 public class UserDTO {
     private String username;
     private String password;
-    private double[] retentionTime;
     private double[] delayTime;
+    private double[] retentionTime;
 }
