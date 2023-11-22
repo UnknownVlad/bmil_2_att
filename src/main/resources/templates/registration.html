@@ -56,30 +56,23 @@
                         <h1 class="registration">Регистрация</h1>
                     </div>
 
-                    <div class="form-element">
-                        <input type="text" id="username" placeholder="Имя">
-                    </div>
-                    <form id="myForm" action="/myController" method="post">
-                    <div class="form-element">
-                        <input type="password" id="password" placeholder="Пароль">
-                    </div>
+                    <!--id="myForm" action="/registration"-->
+                    <form method="post">
+                        <div id="myForm">
+                            <div class="form-element">
+                                <input type="text" name="username" id="username" placeholder="Имя">
+                            </div>
 
+                            <div class="form-element">
+                                <input type="password" name="password" id="password" placeholder="Пароль">
+                            </div>
 
+                            <input type="text" name="time" id="timeValue">
 
-                    <!-- <div class="form-element">
-                        <a href="#">Забыл пароль</a>
-                    </div> -->
-                    <!-- <div class="form-element">
-                        <input type="checkbox" id="remember-me">
-                        <label for="remember-me">Запомнить меня</label>
-                    </div> -->
-                    <input type="text" id="timeValue" value="">
-
-                    <!-- <p id="timeValue">test</p> -->
-
-                    <div class="form-element">
-                        <button class="registration_2" id="reg">Зарегистрироваться</button>
-                    </div>
+                            <div class="form-element">
+                                <button class="registration_2" id="reg" type="submit" name="action">Зарегистрироваться</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

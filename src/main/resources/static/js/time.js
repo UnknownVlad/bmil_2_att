@@ -45,9 +45,23 @@ $(document).ready(function() {
       }
     });
   });
-  
 
-  document.getElementById("myForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    document.getElementById("timeValue").value = keyPressTimes;
-  });
+
+document.getElementById("myForm").addEventListener("submit", function(event){
+  event.preventDefault();
+  // document.getElementById("timeValue").value = keyPressTimes;
+  fetch("/registration", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ time: keyPressTimes})
+  })
+      .then(response => response.json())
+      .then(data =>{
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('error', error);
+      });
+});

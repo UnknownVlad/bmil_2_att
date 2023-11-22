@@ -6,12 +6,14 @@ import com.example.bmil_2_att.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -24,18 +26,25 @@ public class MainController {
 
 
 
-    @GetMapping("/reg")
+    @GetMapping("/registration")
     public String registration(){
         return "registration";
     }
 
 
-    @PostMapping( "/reg")
-    public String registrationUser(@RequestParam String username, @RequestParam String password){
-        System.out.println(username);
-        System.out.println(password);
+    @PostMapping( "/registration")
+    public String registration(@RequestParam String username, @RequestParam String password){
         return "registration";
     }
+
+    /*@GetMapping("/test")
+    public String test(Model module){
+        module.addAttribute(
+                "value", "test"
+        );
+
+        return "registration";
+    }*/
 
     /*@GetMapping("/filter9")
     public ResponseEntity<List<User>> get9(){
