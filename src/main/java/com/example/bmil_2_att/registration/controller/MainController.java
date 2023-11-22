@@ -38,6 +38,7 @@ public class MainController {
     @PostMapping( "/registration")
     public String registration(@RequestParam String username, @RequestParam String password, @RequestParam String time){
         User user = userService.findByUsername(username);
+        System.out.println(username + "___" + password + "___" + time);
         if(user != null){
             System.out.println("USER WITH NAME: %s ALREADY EXIST".formatted(user.getUsername()));
         }else {
