@@ -2,6 +2,8 @@ package com.example.bmil_2_att.registration.controller;
 
 
 
+import com.example.bmil_2_att.registration.model.User;
+import com.example.bmil_2_att.registration.model.UserDTO;
 import com.example.bmil_2_att.repository.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -33,87 +36,100 @@ public class MainController {
 
 
     @PostMapping( "/registration")
-    public String registration(@RequestParam String username, @RequestParam String password){
+    public String registration(@RequestParam String username, @RequestParam String password, @RequestParam String time){
+        User user = userService.findByUsername(username);
+        if(user != null){
+            System.out.println("USER WITH NAME: %s ALREADY EXIST".formatted(user.getUsername()));
+        }else {
+            userService.save(
+                    new UserDTO(
+                            username,
+                            password,
+                            new long[]{1L, 2L, 3L}
+                    )
+            );
+        }
+
+
         return "registration";
     }
 
-    /*@GetMapping("/test")
-    public String test(Model module){
-        module.addAttribute(
-                "value", "test"
-        );
-
+    @GetMapping("/firyulin")
+    public String firyulin(Model model){
+        List<User> users = userService.findAll();
+        if(users == null){
+            System.out.println("NOT FOUND");
+            model.addAttribute("users", new ArrayList<>());
+        }else {
+            model.addAttribute("users", filterVlad(users));
+        }
         return "registration";
-    }*/
-
-    /*@GetMapping("/filter9")
-    public ResponseEntity<List<User>> get9(){
-        System.out.println(f_9(userService.findAll()));
-        return ResponseEntity.ok(
-                f_9(userService.findAll())
-        );
     }
 
-    @GetMapping( "/filter11")
-    public ResponseEntity<List<User>> get11(){
-        System.out.println(f_11(userService.findAll()));
-        return ResponseEntity.ok(
-                f_11(userService.findAll())
-        );
+    @GetMapping("/nartova")
+    public String nartova(Model model){
+        List<User> users = userService.findAll();
+        if(users == null){
+            System.out.println("NOT FOUND");
+            model.addAttribute("users", new ArrayList<>());
+        }else {
+            model.addAttribute("users", filterKristina(users));
+        }
+        return "registration";
+
     }
 
-    @GetMapping( "/filter7")
-    public ResponseEntity<List<User>> get7(){
-        System.out.println(f_7(userService.findAll()));
-        return ResponseEntity.ok(
-                f_7(userService.findAll())
-        );
+    @GetMapping("/shulgin")
+    public String shulgin(Model model){
+        List<User> users = userService.findAll();
+        if(users == null){
+            System.out.println("NOT FOUND");
+            model.addAttribute("users", new ArrayList<>());
+        }else {
+            model.addAttribute("users", filterAlexey(users));
+        }
+        return "registration";
     }
-    *//**
+
+
+    /**
      * Вариант влада 9 - Вывести перечень всех
      * зарегистрированных пользователей, парольная фраза которых
      * заканчиваются символом «a».
-     *//*
-    public List<User> f_9(List<User> users){
+     */
+    private List<User> filterVlad(List<User> users){
         return filter(users, user ->
                 user.getPassword().charAt(user.getPassword().length()-1) == 'a'
         );
     }
 
-    *//**
+    /**
      * Вариант леши 11 - Вывести перечень всех
      * зарегистрированных пользователей, в парольной фразе которых содержится
      * только буквы.
-     *//*
-    public List<User> f_11(List<User> users){
+     */
+    private List<User> filterAlexey(List<User> users){
         return filter(users, user ->
                 user.getPassword().chars().allMatch(Character::isLetter)
         );
     }
 
 
-    *//**
+    /**
      * Вариант кристины 7 - Вывести перечень всех
      * зарегистрированных пользователей, в парольной фразе которых не
      * содержится символы «123».
-     *//*
-    public List<User> f_7(List<User> users){
+     */
+    private List<User> filterKristina(List<User> users){
         return filter(users, user ->
                 !(user.getPassword().contains("1") || user.getPassword().contains("2") || user.getPassword().contains("3"))
         );
     }
 
-
-
-    public List<User> filter(List<User> users, Predicate<User> p){
+    private List<User> filter(List<User> users, Predicate<User> p){
         return users.stream()
                 .filter(p)
                 .collect(Collectors.toList());
-    }*/
-
-
-
-
-
+    }
 
 }
