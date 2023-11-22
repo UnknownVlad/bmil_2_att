@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,27 +24,33 @@
     </section>
 
     <section class="container__margin">
-        <nav>
-            <div class="variant">
-                <button type="submit" class="modal__button" id="open-modal_7">
-                    <img src="img/7.svg" alt="7">
-                </button>
-            </div>
-        </nav>
-        <nav>
-            <div class="variant">
-                <button type="submit">
-                    <img src="img/9.svg" alt="9">
-                </button>
-            </div>
-        </nav>
-        <nav>
-            <div class="variant">
-                <button type="submit">
-                    <img src="img/11.svg" alt="9">
-                </button>
-            </div>
-        </nav>
+        <form th:action="@{/nartova}" method="get" id="nar">
+            <nav>
+                <div class="variant">
+                    <button type="submit" class="modal__button" id="open-modal_7">
+                        <img src="img/7.svg" alt="7">
+                    </button>
+                </div>
+            </nav>
+        </form>
+        <form th:action="@{/firyulin}" method="get" id="fir">
+            <nav>
+                <div class="variant">
+                    <button type="submit">
+                        <img src="img/9.svg" alt="9">
+                    </button>
+                </div>
+            </nav>
+        </form>
+        <form th:action="@{/shulgin}" method="get" id="sh">
+            <nav>
+                <div class="variant">
+                    <button type="submit">
+                        <img src="img/11.svg" alt="11">
+                    </button>
+                </div>
+            </nav>
+        </form>
     </section>
 
     <div class="modal__container" id="modal-container_2">
@@ -75,24 +82,10 @@
             </form>
         </div>
     </div>
-
-    <div class="modal__container" id="modal-container_7">
-        <div class="modal__content">
-            <div class="modal__close close-modal" title="Close">
-                <i class='bx bx-x'></i>
-            </div>
-            <div class="modal__title">
-                <h1 class="registration">Вариант 7</h1>
-            </div>
-            <div class="form-element">
-                <hi>${value}</hi>
-            </div>
-
-        </div>
-    </div>
 </section>
 
 <script src="js/main.js"></script>
 <script src="js/time.js"></script>
+
 </body>
 </html>
