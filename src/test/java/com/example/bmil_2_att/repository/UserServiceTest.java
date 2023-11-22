@@ -1,7 +1,7 @@
 package com.example.bmil_2_att.repository;
 
-import com.example.bmil_2_att.model.User;
-import com.example.bmil_2_att.model.UserDTO;
+import com.example.bmil_2_att.registration.model.User;
+import com.example.bmil_2_att.registration.model.UserDTO;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;

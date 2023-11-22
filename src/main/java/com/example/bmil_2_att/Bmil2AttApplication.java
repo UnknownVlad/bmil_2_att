@@ -1,6 +1,5 @@
 package com.example.bmil_2_att;
 
-import com.example.bmil_2_att.model.UserDTO;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
