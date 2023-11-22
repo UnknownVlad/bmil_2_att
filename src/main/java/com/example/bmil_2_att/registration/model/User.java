@@ -21,13 +21,11 @@ public class User {
     private Long id;
     private String username;
     private String password;
-    private double[] retentionTime;
-    private double[] delayTime;
+    private long[] betweenTaps;
 
-    public User(String username, String password, double[] retentionTime, double[] delayTime) {
+    public User(String username, String password, long[] betweenTaps) {
         this.username = username;
         this.password = password;
-        this.retentionTime = retentionTime;
-        this.delayTime = delayTime;
+        this.betweenTaps = betweenTaps;
     }
 }

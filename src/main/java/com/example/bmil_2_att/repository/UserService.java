@@ -12,11 +12,12 @@ import java.util.List;
 public class UserService  {
     @Autowired
     private UserRepository userRepository;
-
     public List<User> findAll() {
         return userRepository.findAll();
     }
-
+    public User findByUsername(String username){
+        return userRepository.findByUsername(username);
+    }
     public boolean save(UserDTO user) {
 
         if (userRepository.findByUsername(user.getUsername()) != null) {
@@ -27,9 +28,7 @@ public class UserService  {
                 new User(
                         user.getUsername(),
                         user.getPassword(),
-                        user.getRetentionTime(),
-                        user.getDelayTime()
-
+                        user.getBetweenTaps()
                 )
         );
         return true;
