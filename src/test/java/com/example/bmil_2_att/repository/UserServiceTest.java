@@ -25,11 +25,7 @@ class UserServiceTest {
 
     @Test
     void save() {
-        UserDTO user = new UserDTO(
-                "Alexey",
-                "password",
-                new double[]{0.1 , 0.2, 0.3},
-                new double[]{0.1 , 0.2, 0.3});
+        UserDTO user = new UserDTO();
 
         boolean isSaved = userService.save(user);
 
