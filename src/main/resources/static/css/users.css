@@ -6,12 +6,13 @@
 
 html {
     overflow-y: hidden;
-  }
+}
 
 .goo {
-    font-size: 1.5rem;
+    text-align: center;
+    font-size: 18px;
     line-height: 1.35;
-    display: inline;
+    display: inline-block;
     box-decoration-break: clone;
     background: var(--color-highlight);
     padding: 0.5rem 1rem;
@@ -22,24 +23,17 @@ html {
     outline: 0;
 }
 
-.edit {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: var(--color-bg2);
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    color: var(--color-highlight);
-    border-radius: 1em;
+.conclusion{
+    text-align: center;
+    margin-top: 50px;
 }
 
 body {
-    padding: 0px 100px 0 100px;
-    font-family: var(--font);
-    background: linear-gradient(135deg, #5A567E, #5D1D34);
+    display: flex;
     height: 100vh;
     align-items: center;
-    display: flex;
-    /* justify-content: center; */
-    margin-top: 250px;
     flex-direction: column;
+    padding: 7.5vh 200px 0 200px;
+    font-family: var(--font);
+    background: linear-gradient(135deg, #5A567E, #5D1D34);
 }
