@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+        <link rel="stylesheet" href="css/reg_style.css">
+
+        <title>Registration</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    </head>
+    <body>
+        <section class="container">
+
+            <section class="container__margin">
+                <div class="user">
+                    <button type="submit" class="modal__button" id="open-modal_2">
+                        <img src="img/profile.svg" alt="profile">
+                    </button>
+                </div>
+            </section>
+
+            <section class="container__margin">
+                <nav>
+                    <div class="variant">
+                        <button type="submit" class="modal__button" id="open-modal_7">
+                            <img src="img/7.svg" alt="7">
+                        </button>
+                    </div>
+                </nav>
+                <nav>
+                    <div class="variant">
+                        <button type="submit">
+                            <img src="img/9.svg" alt="9">
+                        </button>
+                    </div>
+                </nav>
+                <nav>
+                    <div class="variant">
+                        <button type="submit">
+                            <img src="img/11.svg" alt="9">
+                        </button>
+                    </div>
+                </nav>
+            </section>
+
+            <div class="modal__container" id="modal-container_2">
+                <div class="modal__content" id="form-password">
+                    <div class="modal__close close-modal" title="Close">
+                        <i class='bx bx-x'></i>
+                    </div>
+
+                    <div class="modal__title">
+                        <h1 class="registration">Регистрация</h1>
+                    </div>
+
+                    <!--id="myForm" action="/registration"-->
+                    <form method="post">
+                        <div id="myForm">
+                            <div class="form-element">
+                                <input type="text" name="username" id="username" placeholder="Имя">
+                            </div>
+
+                            <div class="form-element">
+                                <input type="password" name="password" id="password" placeholder="Пароль">
+                            </div>
+
+                            <input type="text" name="time" id="timeValue">
+
+                            <div class="form-element">
+                                <button class="registration_2" id="reg" type="submit" name="action">Зарегистрироваться</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal__container" id="modal-container_7">
+                <div class="modal__content">
+                    <div class="modal__close close-modal" title="Close">
+                        <i class='bx bx-x'></i>
+                    </div>
+                    <div class="modal__title">
+                        <h1 class="registration">Вариант 7</h1>
+                    </div>
+                    <div class="form-element">
+                        <hi>${value}</hi>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <script src="js/main.js"></script>
+        <script src="js/time.js"></script>
+    </body>
+</html>
