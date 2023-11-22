@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -46,7 +47,7 @@ public class MainController {
                     new UserDTO(
                             username,
                             password,
-                            new long[]{1L, 2L, 3L}
+                            Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
                     )
             );
         }
@@ -77,7 +78,6 @@ public class MainController {
             model.addAttribute("users", filterKristina(users));
         }
         return "registration";
-
     }
 
     @GetMapping("/shulgin")
