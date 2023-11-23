@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+:root {
+    --color-highlight: #fff;
+    --font: 'Comfortaa', sans-serif;
+}
+
+html {
+    overflow-y: hidden;
+}
+
+.goo {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.35;
+    display: inline-block;
+    box-decoration-break: clone;
+    background: var(--color-highlight);
+    padding: 0.5rem 1rem;
+    filter: url('#goo');
+}
+
+.goo:focus {
+    outline: 0;
+}
+
+.conclusion{
+    text-align: center;
+    margin-top: 50px;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    padding: 7.5vh 200px 0 200px;
+    font-family: var(--font);
+    background: linear-gradient(135deg, #5A567E, #5D1D34);
+}

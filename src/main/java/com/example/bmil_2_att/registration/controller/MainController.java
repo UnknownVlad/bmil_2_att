@@ -52,7 +52,6 @@ public class MainController {
             );
         }
 
-
         return "registration";
     }
 
@@ -61,11 +60,12 @@ public class MainController {
         List<User> users = userService.findAll();
         if(users == null){
             System.out.println("NOT FOUND");
-            model.addAttribute("users", new ArrayList<>());
+            model.addAttribute("users_9", new ArrayList<>());
         }else {
-            model.addAttribute("users", filterVlad(users));
+            model.addAttribute("users_9", filterVlad(users));
+            System.out.println(filterVlad(users));
         }
-        return "registration";
+        return "var9";
     }
 
     @GetMapping("/nartova")
@@ -73,11 +73,12 @@ public class MainController {
         List<User> users = userService.findAll();
         if(users == null){
             System.out.println("NOT FOUND");
-            model.addAttribute("users", new ArrayList<>());
+            model.addAttribute("users_7", new ArrayList<>());
         }else {
-            model.addAttribute("users", filterKristina(users));
+            model.addAttribute("users_7", filterKristina(users));
+            System.out.println(filterKristina(users));
         }
-        return "registration";
+        return "var7";
     }
 
     @GetMapping("/shulgin")
@@ -85,11 +86,12 @@ public class MainController {
         List<User> users = userService.findAll();
         if(users == null){
             System.out.println("NOT FOUND");
-            model.addAttribute("users", new ArrayList<>());
+            model.addAttribute("users_11", new ArrayList<>());
         }else {
-            model.addAttribute("users", filterAlexey(users));
+            model.addAttribute("users_11", filterAlexey(users));
+            System.out.println(filterAlexey(users));
         }
-        return "registration";
+        return "var11";
     }
 
 
