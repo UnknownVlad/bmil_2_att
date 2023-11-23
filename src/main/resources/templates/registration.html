@@ -11,6 +11,7 @@
 
     <title>Registration</title>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 <body>
 <section class="container">
@@ -63,21 +64,21 @@
                 <h1 class="registration">Регистрация</h1>
             </div>
 
-            <form method="post">
+            <form method="post" target="_blank">
                 <div class="form-element">
-                    <input type="text" id="username" name="username" placeholder="Имя">
+                    <input type="text" class="rfield" id="username" name="username" placeholder="Имя">
                 </div>
                 <div class="form-element">
-                    <input type="password" id="password" name="password" placeholder="Пароль">
+                    <input type="password" class="rfield" id="password" name="password" placeholder="Пароль">
                 </div>
                 <input type="text" id="timeValue" name="time" value="time">
                 <div class="form-element">
-                    <button class="enter" type="submit" id="reg" name="action">Зарегистрироваться</button>
+                    <button class="registration" type="submit" id="reg" name="action">Зарегистрироваться</button>
                 </div>
             </form>
             <form id="timeForm">
                 <div class="form-element">
-                    <button class="registration_1" id="time" type="submit">Посчитать время</button>
+                    <button class="time" id="time" type="submit">Посчитать время</button>
                 </div>
             </form>
         </div>
@@ -86,6 +87,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/time.js"></script>
+<script src="js/empty_field.js"></script>
 
 </body>
 </html>

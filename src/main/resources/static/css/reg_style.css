@@ -180,8 +180,7 @@ body{
   margin: 6px 14px 36px 0px;
 }
 
-.modal__container .modal__content .form-element input[type="text"],
-.modal__container .modal__content .form-element input[type="password"]{
+.modal__container .modal__content .form-element input{
   display: block;
   margin-top: 16px;
   width: 100%;
@@ -194,6 +193,17 @@ body{
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: #FFF
+}
+
+.modal__container .modal__content .form-element input.empty_field{
+    background: rgba(255, 0, 0, 0.11);
+    border: 1.4px solid rgba(161, 42, 42, 0.35);
+    box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modal__container .modal__content .form-element input.empty_field:focus{
+    background: rgba(255, 255, 255, 0.08);
+    border: 1.4px solid rgba(161, 42, 42, 0.35);
 }
 
 .modal__container .modal__content .form-element button{
@@ -210,27 +220,23 @@ body{
 
 }
 
-.modal__container .modal__content .form-element button.enter{
+.modal__container .modal__content .form-element button.registration{
   background: rgba(30, 30, 30, 0.50);
   margin: 35px 0px 13px;
 }
 
-.modal__container .modal__content .form-element button.registration_1{
+.modal__container .modal__content .form-element button.time{
   background: #000000;
   margin-bottom: 44px;
 }
 
-.modal__container .modal__content .form-element button.registration_2{
-  background: #000000;
-  margin: 40px 0px 54px;
-}
 /*
 .modal__container .modal__content .form-element button.enter:hover {
   background: rgba(30, 30, 30, 0.64);
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
  }
 */
- .modal__container .modal__content .form-element button.enter:active {
+ .modal__container .modal__content .form-element button.registration:active {
   background: rgba(30, 30, 30, 0.64);
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
  }
@@ -239,7 +245,7 @@ body{
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
  }
 */
- .modal__container .modal__content .form-element button.registration_1:active {
+ .modal__container .modal__content .form-element button.time:active {
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
  }
 
