@@ -15,7 +15,7 @@ $('document').ready(function() {
   });
 
 $(document).ready(function() {
-  $("form").submit(function() {
+  $("#form_user").submit(function() {
     name = $("input[name='username']").val();
     password = $("input[name='password']").val();
 

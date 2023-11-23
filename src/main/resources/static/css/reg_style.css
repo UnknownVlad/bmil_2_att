@@ -203,7 +203,7 @@ body{
 
 .modal__container .modal__content .form-element input.empty_field:focus{
     background: rgba(255, 255, 255, 0.08);
-    border: 1.4px solid rgba(161, 42, 42, 0.35);
+    border: 1.4px solid rgba(255, 255, 255, 0.12);
 }
 
 .modal__container .modal__content .form-element button{
