@@ -2,11 +2,9 @@ package com.example.bmil_2_att.registration.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import lombok.*;
 
 
 @Entity
@@ -19,8 +17,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+
     private String username;
+
+
     private String password;
+
     private long[] betweenTaps;
 
     public User(String username, String password, long[] betweenTaps) {

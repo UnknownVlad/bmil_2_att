@@ -1,16 +1,20 @@
 package com.example.bmil_2_att.registration.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
 public class UserDTO {
+    @NonNull
+    @NotEmpty
     private String username;
+    @NonNull
+    @NotEmpty
+    @Size(min=2)
     private String password;
     private long[] betweenTaps;
 
