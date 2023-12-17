@@ -4,8 +4,10 @@ import com.example.bmil_2_att.custom_exeption.Response;
 import com.example.bmil_2_att.custom_exeption.exeptions.NotValidDataException;
 import com.example.bmil_2_att.custom_exeption.exeptions.NotValidTapsException;
 import com.example.bmil_2_att.registration.model.User;
+import com.example.bmil_2_att.registration.model.UserDTO;
 import com.example.bmil_2_att.repository.AuthenticationProvider;
 import com.example.bmil_2_att.repository.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -29,12 +31,12 @@ public class AuthenticationController {
     }
 
     @PostMapping( "/auth")
-    public ResponseEntity<Response> authentication(@RequestParam String username, @RequestParam String password, @RequestParam String time, BindingResult bindingResult){
+    public ResponseEntity<Response> authentication(@Valid @RequestParam UserDTO userDTO, @RequestParam String time, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             throw new NotValidDataException("not valid data");
         }
 
-        User user = authenticationProvider.loadUser(username, password);
+        User user = authenticationProvider.loadUser(userDTO.getUsername(), userDTO.getPassword());
         boolean isAuth = authenticationProvider.isMatchUser(
                 user,
                 Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()

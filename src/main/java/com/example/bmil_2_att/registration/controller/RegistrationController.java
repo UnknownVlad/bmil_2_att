@@ -6,6 +6,7 @@ import com.example.bmil_2_att.custom_exeption.exeptions.UserExistException;
 import com.example.bmil_2_att.registration.model.User;
 import com.example.bmil_2_att.registration.model.UserDTO;
 import com.example.bmil_2_att.repository.UserService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -25,22 +26,21 @@ public class RegistrationController {
         return "registration";
     }
     @PostMapping( "/registration")
-    public ResponseEntity<Response> registration(@RequestParam String username, @RequestParam String password, @RequestParam String time, BindingResult bindingResult){
+    public ResponseEntity<Response> registration(@Valid @RequestParam UserDTO userDTO, @RequestParam String time, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             throw new NotValidDataException("not valid data");
         }
 
-        User user = userService.findByUsername(username);
+        User user = userService.findByUsername(userDTO.getUsername());
 
         if(user != null){
-            throw new UserExistException("user with username <%s> already exist".formatted(username));
+            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
         }else {
+            userDTO.setBetweenTaps(
+                    Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
+            );
             userService.save(
-                    new UserDTO(
-                            username,
-                            password,
-                            Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
-                    )
+                    userDTO
             );
         }
 
