@@ -3,15 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap');
 
 
-
-@media screen and (min-width: 968px) {
-  :root {
-    --big-font-size: 1.75rem;
-    --normal-font-size: 1rem;
-  }
-}
-
-
 *{
   margin: 0px;
   padding: 0px;
@@ -61,6 +52,15 @@ body{
   height: 60px;
 }
 
+@media screen and (min-width: 968px) {
+  :root {
+    --hue: 240;
+    --z-modal: 1000;
+    --big-font-size: 1.75rem;
+    --normal-font-size: 1rem;
+  }
+}
+
 .modal__content input{
   color: #FFF;
   display: none;
@@ -70,6 +70,8 @@ body{
   position: absolute;
   top: 0;
   left: 0;
+  background-color: hsla(var(--hue), 36%, 74%, 0.3);
+  backdrop-filter: blur(8px);
   width: 100%;
   height: 100%;
   display: grid;
@@ -180,7 +182,8 @@ body{
   margin: 6px 14px 36px 0px;
 }
 
-.modal__container .modal__content .form-element input{
+.modal__container .modal__content .form-element input[type="text"],
+.modal__container .modal__content .form-element input[type="password"]{
   display: block;
   margin-top: 16px;
   width: 100%;
@@ -192,35 +195,22 @@ body{
   backdrop-filter: blur(5px);
   font-family: "Raleway", sans-serif;
   font-weight: 500;
+  font-size: 15px;
   color: #FFF
 }
 
-.modal__container .modal__content .form-element.error input{
+.modal__container .modal__content .form-element.error input[type="text"],
+.modal__container .modal__content .form-element.error input[type="password"] {
   /* border-color: var(--error-color); */
   background: rgba(255, 0, 0, 0.11);
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
 }
 
-.modal__container .modal__content .form-element.success input{
+.modal__container .modal__content .form-element.success input[type="text"],
+.modal__container .modal__content .form-element.success input[type="password"] {
   /*background: rgba(0, 255, 85, 0.11);*/
   background: rgba(255, 255, 255, 0.08);
   /*box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);*/
-}
-
-.password-control {
-	position: absolute;
-	top: 8px;
-  right: 15px;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-
-	/* background: url(https://snipp.ru/demo/495/view.svg) 0 0 no-repeat; */
-	background: url(https://img.icons8.com/material-outlined/24/FFFFFF/hide.png) 0 0 no-repeat;
-}
-.password-control.view {
-	/* background: url(https://snipp.ru/demo/495/no-view.svg) 0 0 no-repeat; */
-	background: url(https://img.icons8.com/material-outlined/24/FFFFFF/visible--v1.png) 0 0 no-repeat;
 }
 
 .modal__container .modal__content .form-element small {
@@ -231,17 +221,21 @@ body{
 }
 
 .modal__container .modal__content .form-element button{
-  width: 100%;
-  height: 45px;
-  border: none;
-  outline: none;
-  border-radius: 39px;
+  position: relative;
+   width: 100%;
+   height: 45px;
+   border: none;
+   outline: none;
+   border-radius: 39px;
+   cursor: pointer;
+}
+
+.button__text{
   font-family: "Raleway", sans-serif;
   font-size: 14px;
   font-weight: 500;
   color: #FFF;
-  cursor: pointer;
-
+  transition: all 0.2s;
 }
 
 .modal__container .modal__content .form-element button.registration{
@@ -254,21 +248,11 @@ body{
   margin-bottom: 44px;
 }
 
-/*
-.modal__container .modal__content .form-element button.enter:hover {
-  background: rgba(30, 30, 30, 0.64);
-  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
- }
-*/
  .modal__container .modal__content .form-element button.registration:active {
   background: rgba(30, 30, 30, 0.64);
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
  }
-/*
- .modal__container .modal__content .form-element button.registration_1:hover {
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
- }
-*/
+
  .modal__container .modal__content .form-element button.time:active {
   box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
  }
