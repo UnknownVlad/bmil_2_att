@@ -27,22 +27,19 @@ public class RegistrationController {
     }
     @PostMapping( "/registration")
     public ResponseEntity<Response> registration(@Valid UserDTO userDTO, BindingResult bindingResult){
-//        if (bindingResult.hasErrors()){
-//            throw new NotValidDataException("not valid data");
-//        }
+        if (bindingResult.hasErrors()){
+            throw new NotValidDataException("not valid data");
+        }
 
-//        User user = userService.findByUsername(userDTO.getUsername());
-//
-//        if(user != null){
-//            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
-//        }else {
-//            userDTO.setBetweenTaps(
-//                    Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
-//            );
-//            userService.save(
-//                    userDTO
-//            );
-//        }
+        User user = userService.findByUsername(userDTO.getUsername());
+
+        if(user != null){
+            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
+        }else {
+            userService.save(
+                    userDTO
+            );
+        }
         System.out.println("++++");
         System.out.println(userDTO);
         return ResponseEntity.ok().build();

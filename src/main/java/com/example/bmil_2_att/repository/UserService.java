@@ -18,22 +18,23 @@ public class UserService  {
     }
 
     public boolean save(UserDTO user) {
-
         if (userRepository.findByUsername(user.getUsername()) != null) {
             return false;
         }
 
         userRepository.save(
-                new User(
-                        user.getUsername(),
-                        user.getPassword(),
-                        Arrays.stream(user.getTime().split(",")).mapToLong(Long::parseLong).toArray()
-                )
+                convert(user)
         );
         return true;
-
     }
 
+    public User convert(UserDTO user){
+        return new User(
+                user.getUsername(),
+                user.getPassword(),
+                Arrays.stream(user.getTime().split(",")).mapToLong(Long::parseLong).toArray()
+        );
+    }
     public User findByUsername(String username) {
         return userRepository.findByUsername(username);
     }

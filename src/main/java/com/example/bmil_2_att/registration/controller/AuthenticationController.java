@@ -26,12 +26,12 @@ public class AuthenticationController {
     private AuthenticationProvider authenticationProvider;
 
     @GetMapping("/auth")
-    public String authentication(){
+    public String authentication(UserDTO userDTO){
         return "auth";
     }
 
     @PostMapping( "/auth")
-    public ResponseEntity<Response> authentication(@Valid @RequestParam UserDTO userDTO, @RequestParam String time, BindingResult bindingResult){
+    public ResponseEntity<Response> authentication(@Valid UserDTO userDTO, BindingResult bindingResult){
         if (bindingResult.hasErrors()){
             throw new NotValidDataException("not valid data");
         }
@@ -39,7 +39,7 @@ public class AuthenticationController {
         User user = authenticationProvider.loadUser(userDTO.getUsername(), userDTO.getPassword());
         boolean isAuth = authenticationProvider.isMatchUser(
                 user,
-                Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
+                userService.convert(userDTO)
         );
 
         if (!isAuth){
