@@ -64,16 +64,20 @@
                 <h1 class="registration">Регистрация</h1>
             </div>
 
-            <form method="post" target="_blank" id="form_user">
+            <form id="registration">
                 <div class="form-element">
-                    <input type="text" class="rfield" id="username" name="username" placeholder="Имя">
+                    <input type="text" id="username" name="username" placeholder="Имя" readonly onfocus="this.removeAttribute('readonly');">
+                    <small></small>
                 </div>
                 <div class="form-element">
-                    <input type="password" class="rfield" id="password" name="password" placeholder="Пароль">
+                    <input type="password" id="password" name="password" placeholder="Пароль" readonly onfocus="this.removeAttribute('readonly');">
+                    <small></small>
                 </div>
                 <input type="text" id="timeValue" name="time" value="time">
                 <div class="form-element">
-                    <button class="registration" type="submit" id="reg" name="action">Зарегистрироваться</button>
+                    <button class="registration" type="submit" id="button">
+                        <span class="button__text">Зарегистрироваться</span>
+                    </button>
                 </div>
             </form>
             <form id="timeForm">
@@ -86,8 +90,9 @@
 </section>
 
 <script src="js/main.js"></script>
+<script src="js/modal.js"></script>
 <script src="js/time.js"></script>
-<script src="js/empty_field.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
 
 </body>
 </html>
