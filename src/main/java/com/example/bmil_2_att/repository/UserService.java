@@ -6,6 +6,7 @@ import com.example.bmil_2_att.registration.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -26,7 +27,7 @@ public class UserService  {
                 new User(
                         user.getUsername(),
                         user.getPassword(),
-                        user.getBetweenTaps()
+                        Arrays.stream(user.getTime().split(",")).mapToLong(Long::parseLong).toArray()
                 )
         );
         return true;

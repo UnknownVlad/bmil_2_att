@@ -22,28 +22,29 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
     @GetMapping("/registration")
-    public String registration(){
+    public String registration(UserDTO userDTO){
         return "registration";
     }
     @PostMapping( "/registration")
-    public ResponseEntity<Response> registration(@Valid @RequestParam UserDTO userDTO, @RequestParam String time, BindingResult bindingResult){
-        if (bindingResult.hasErrors()){
-            throw new NotValidDataException("not valid data");
-        }
+    public ResponseEntity<Response> registration(@Valid UserDTO userDTO, BindingResult bindingResult){
+//        if (bindingResult.hasErrors()){
+//            throw new NotValidDataException("not valid data");
+//        }
 
-        User user = userService.findByUsername(userDTO.getUsername());
-
-        if(user != null){
-            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
-        }else {
-            userDTO.setBetweenTaps(
-                    Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
-            );
-            userService.save(
-                    userDTO
-            );
-        }
-
+//        User user = userService.findByUsername(userDTO.getUsername());
+//
+//        if(user != null){
+//            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
+//        }else {
+//            userDTO.setBetweenTaps(
+//                    Arrays.stream(time.split(",")).mapToLong(Long::parseLong).toArray()
+//            );
+//            userService.save(
+//                    userDTO
+//            );
+//        }
+        System.out.println("++++");
+        System.out.println(userDTO);
         return ResponseEntity.ok().build();
     }
 }

@@ -19,6 +19,6 @@ public class UserDTO {
     @Size(min=2)
     private String password;
 
-    private long[] betweenTaps;
+    private String time;
 
 }

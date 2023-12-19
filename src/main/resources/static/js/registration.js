@@ -2,8 +2,10 @@ const usernameEl = document.querySelector('#username');
 const passwordEl = document.querySelector('#password');
 const timeEl = document.querySelector('#timeValue');
 
+
 const form = document.querySelector('#registration');
 const btn = document.querySelector("#button");
+
 
 
 const checkUsername = () => {
@@ -26,19 +28,6 @@ const checkUsername = () => {
     return valid;
 };
 
-const checkEmail = () => {
-    let valid = false;
-    const email = emailEl.value.trim();
-    if (!isRequired(email)) {
-        showError(emailEl, 'Поле не может быть пустым.');
-    } else if (!isEmailValid(email)) {
-        showError(emailEl, 'Email недействителен.')
-    } else {
-        showSuccess(emailEl);
-        valid = true;
-    }
-    return valid;
-};
 
 const checkPassword = () => {
     let valid = false;
@@ -62,13 +51,10 @@ const checkTimeValue = () => {
 
     let valid = false;
 
-    const min = 2,
-        max = 25;
-
     const time = timeEl.value.trim();
 
     if (!isRequired(time)) {
-        showError(timeEl, 'Поле не может быть пустым.');
+        showError(timeEl, 'Проблема со временем');
     } else {
         showSuccess(timeEl);
         valid = true;
@@ -113,7 +99,7 @@ const ajaxSend = async (formData) => {
                             btn.classList.remove("button--loading");
                             let result = await response.json();
 //                            alert(result.message);
-                            showError(emailEl, result.message);
+                            showError(usernameEl, result.message);
                             throw new Error('Ошибка');
                        }
     return await response.text();
@@ -123,16 +109,15 @@ form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     let isUsernameValid = checkUsername(),
-        isEmailValid = checkEmail(),
         isPasswordValid = checkPassword(),
-        isConfirmPasswordValid = checkConfirmPassword();
+        isTimeValue = checkTimeValue();
 
     let isFormValid = isUsernameValid &&
-        isEmailValid &&
         isPasswordValid &&
-        isConfirmPasswordValid;
+        isTimeValue;
 
     let formData = new FormData(form);
+
     if (isFormValid) {
         btn.classList.add("button--loading");
         ajaxSend(formData).then((response) => {
@@ -171,3 +156,4 @@ form.addEventListener('input', debounce(function (e) {
             break;
     }
 }));
+
