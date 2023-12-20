@@ -35,8 +35,6 @@ const checkPassword = () => {
 
     if (!isRequired(password)) {
         showError(passwordEl, 'Поле не может быть пустым.');
-    } else if (!isPasswordSecure(password)) {
-        showError(passwordEl, 'Минимум 4 символов: буквы верхнего и нижнего регистра, цифры');
     } else {
         showSuccess(passwordEl);
         valid = true;
@@ -60,10 +58,10 @@ const checkTimeValue = () => {
     return valid;
 };
 
-const isPasswordSecure = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
-    return re.test(password);
-};
+//const isPasswordSecure = (password) => {
+//    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
+//    return re.test(password);
+//};
 
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
