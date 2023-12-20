@@ -27,7 +27,7 @@ public class AuthenticationController {
 
     @GetMapping("/auth")
     public String authentication(UserDTO userDTO){
-        return "auth";
+        return "index";
     }
 
     @PostMapping( "/auth")
@@ -46,6 +46,7 @@ public class AuthenticationController {
             throw new NotValidTapsException("not valid taps");
         }
 
+        System.out.println("auth is +");
         return ResponseEntity.ok().build();
     }
 }

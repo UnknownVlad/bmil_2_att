@@ -19,8 +19,6 @@ const checkUsername = () => {
 
     if (!isRequired(username)) {
         showError(usernameEl, 'Поле не может быть пустым.');
-    } else if (!isBetween(username.length, min, max)) {
-        showError(usernameEl, `Длина имени должна быть не меньше ${min} символов и не больше ${max} символов.`)
     } else {
         showSuccess(usernameEl);
         valid = true;
@@ -38,7 +36,7 @@ const checkPassword = () => {
     if (!isRequired(password)) {
         showError(passwordEl, 'Поле не может быть пустым.');
     } else if (!isPasswordSecure(password)) {
-        showError(passwordEl, 'Минимум 6 символов: буквы верхнего и нижнего регистра, цифры');
+        showError(passwordEl, 'Минимум 4 символов: буквы верхнего и нижнего регистра, цифры');
     } else {
         showSuccess(passwordEl);
         valid = true;
@@ -63,7 +61,7 @@ const checkTimeValue = () => {
 };
 
 const isPasswordSecure = (password) => {
-    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{6,})");
+    const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{4,})");
     return re.test(password);
 };
 

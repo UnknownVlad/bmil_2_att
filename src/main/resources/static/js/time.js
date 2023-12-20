@@ -22,7 +22,4 @@ $(document).ready(function() {
 
 
 
-  // document.getElementById("timeForm").addEventListener("submit", function(event){
-  //   event.preventDefault();
-  //   document.getElementById("timeValue").value = keyPressTimes;
-  // });
+

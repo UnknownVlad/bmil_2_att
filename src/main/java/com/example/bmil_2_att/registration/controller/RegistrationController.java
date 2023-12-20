@@ -23,7 +23,7 @@ public class RegistrationController {
     private UserService userService;
     @GetMapping("/registration")
     public String registration(UserDTO userDTO){
-        return "registration";
+        return "index";
     }
     @PostMapping( "/registration")
     public ResponseEntity<Response> registration(@Valid UserDTO userDTO, BindingResult bindingResult){
@@ -34,7 +34,7 @@ public class RegistrationController {
         User user = userService.findByUsername(userDTO.getUsername());
 
         if(user != null){
-            throw new UserExistException("user with username <%s> already exist".formatted(userDTO.getUsername()));
+            throw new UserExistException("User with username <%s> already exist".formatted(userDTO.getUsername()));
         }else {
             userService.save(
                     userDTO

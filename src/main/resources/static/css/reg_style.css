@@ -237,24 +237,42 @@ body{
   transition: all 0.2s;
 }
 
-.modal__container .modal__content .form-element button.registration{
+.modal__container .modal__content .form-element button.enter{
   background: rgba(30, 30, 30, 0.50);
-  margin: 45px 0px 37px;
+  margin: 35px 0px 13px;
 }
 
-.modal__container .modal__content .form-element button.time{
-  background: #000000;
-  margin-bottom: 44px;
-}
-
- .modal__container .modal__content .form-element button.registration:active {
+.modal__container .modal__content .form-element button.enter:hover {
+  background: rgba(30, 30, 30, 0.64);
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
+ }
+ .modal__container .modal__content .form-element button.enter:active {
   background: rgba(30, 30, 30, 0.64);
   box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
  }
 
- .modal__container .modal__content .form-element button.time:active {
-  box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+.modal__container .modal__content .form-element button.registration_1{
+  background: #000000;
+  margin-bottom: 44px;
+}
+
+.modal__container .modal__content .form-element button.registration_1:hover{
+ box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+}
+.modal__container .modal__content .form-element button.registration_1:active{
+ box-shadow: 0px 6px 6px 0px rgba(0, 0, 0, 0.25);
+}
+
+.modal__container .modal__content .form-element button.registration_2{
+  background: rgba(30, 30, 30, 0.50);
+  margin: 45px 0px 37px;
+}
+
+ .modal__container .modal__content .form-element button.registration_2:active {
+  background: rgba(30, 30, 30, 0.64);
+  box-shadow: 6px 6px 6px 0px rgba(0, 0, 0, 0.15) inset;
  }
+
 
 .modal__container .modal__content .form-element a{
   display: block;

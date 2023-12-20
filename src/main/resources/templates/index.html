@@ -18,7 +18,7 @@
 
     <section class="container__margin">
         <div class="user">
-            <button type="submit" class="modal__button" id="open-modal_2">
+            <button type="submit" class="modal__button" id="open-modal_1">
                 <img src="img/profile.svg" alt="profile">
             </button>
         </div>
@@ -54,6 +54,42 @@
         </form>
     </section>
 
+<!--    <div th:replace="authorization :: div.modal__container"></div>-->
+
+    <div class="modal__container" id="modal-container_1">
+        <div class="modal__content">
+            <div class="modal__close close-modal" title="Close">
+                <i class='bx bx-x'></i>
+            </div>
+            <div class="modal__title">
+                <h1 class="authorization">Авторизация</h1>
+            </div>
+
+            <form id="authorization">
+                <div class="form-element">
+                    <input type="text" name="username" id="user_auth" placeholder="Имя">
+                    <small></small>
+                </div>
+                <div class="form-element">
+                    <input type="password" name="password" id="password_auth" placeholder="Пароль">
+                    <a href="#" class="password-control" onclick="return show_hide_password_auth(this);"></a>
+                    <small></small>
+                </div>
+                <input type="text" id="timeValue_auth" name="time" value="time">
+                <div class="form-element">
+                    <button class="enter" type="submit" id="enter">
+                        <span class="button__text">Войти</span>
+                    </button>
+                </div>
+            </form>
+            <div class="form-element">
+                <button class="registration_1" id="open-modal_2">
+                    <span class="button__text">Зарегистрироваться</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="modal__container" id="modal-container_2">
         <div class="modal__content" id="form-password">
             <div class="modal__close close-modal" title="Close">
@@ -75,27 +111,23 @@
                 </div>
                 <input type="text" id="timeValue" name="time" value="time">
                 <div class="form-element">
-                    <button class="registration" type="submit" id="button">
+                    <button class="registration_2" type="submit" id="button">
                         <span class="button__text">Зарегистрироваться</span>
                     </button>
                 </div>
-<!--                <form id="timeForm">-->
-<!--                    <div class="form-element">-->
-<!--                        <button class="time" id="time" type="submit">-->
-<!--                            <span class="button__text">Посчитать время</span>-->
-<!--                        </button>-->
-<!--                    </div>-->
-<!--                </form>-->
             </form>
-
         </div>
     </div>
+
 </section>
 
+<script src="js/authorization.js"></script>
 <script src="js/registration.js"></script>
 <script src="js/modal_bml.js"></script>
 <script src="js/time.js"></script>
+<script src="js/time_auth.js"></script>
 <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
 
 </body>
 </html>
